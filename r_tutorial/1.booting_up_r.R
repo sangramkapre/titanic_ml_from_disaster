@@ -1,6 +1,6 @@
-# Load training data
-train <- read.csv(file=file.choose(), header=TRUE, stringsAsFactors=FALSE)
-test <- read.csv(file=file.choose(), header=TRUE, stringsAsFactors=FALSE)
+# Load training and testing data
+train <- read.csv(file=file.choose(), header=TRUE)
+test <- read.csv(file=file.choose(), header=TRUE)
 
 table(train$Survived)
 prop.table(table(train$Survived))
