@@ -48,9 +48,11 @@ combined$FamilyId <- factor(combined$FamilyId)
 summary(combined$Age)
 
 # process Age variable to impute new values
-AgeFit <- rpart(Age ~ Pclass+Sex+SibSp+Parch+Fare+Embarked+Title+FamilySize,
-                data=combined[!is.na(combined$Age), ], method="anova")
-combined$Age[is.na(combined$Age)] <- predict(AgeFit, combined[is.na(combined$Age), ])
+library(rpart)
+Agefit <- rpart(Age ~ Pclass + Sex + SibSp + Parch + Fare + Embarked + Title + FamilySize,
+                data=combined[!is.na(combined$Age),], method="anova")
+combined$Age[is.na(combined$Age)] <- predict(Agefit, combined[is.na(combined$Age),])
+
 summary(combined)
 summary(combined$Embarked)
 
